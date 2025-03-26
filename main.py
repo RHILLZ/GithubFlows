@@ -17,7 +17,10 @@ secret_key = os.getenv("SECRET_KEY")
 
 def main():
     logger.info("Starting application")
-    logger.info(f"Secret key loaded: {'*' * len(secret_key) if secret_key else 'None'}")
+    if secret_key:
+        logger.info(f"Secret key loaded: {'*' * len(secret_key)}")
+    else:
+        logger.info("Secret key loaded: None")
     logger.info("Application completed")
 
 
